@@ -1,6 +1,7 @@
 import { Controller, Get, Res } from '@nestjs/common';
 import { Response } from 'express';
-import * as puppeteer from 'puppeteer-core';
+import * as puppeteer from 'puppeteer';
+// import * as puppeteer from 'puppeteer-core';
 import * as xlsx from 'xlsx';
 import * as path from 'path';
 
@@ -21,19 +22,19 @@ export class ActividadesController {
 		console.log('HOLA 1', process.env.NODE_ENV, process.env.PUPPETEER_EXECUTABLE_PATH);
     // Inicializar el navegador con Puppeteer
     const browser = await puppeteer.launch({
-      // headless: true,
-			timeout: 0,
+      headless: true,
+			/*timeout: 0,
       args: [
         '--disable-setuid-sandbox',
         '--no-sandbox',
         '--single-process',
         '--no-zygote',
-      ],
+      ],*/
       //executablePath: `/usr/bin/chromium-browser`,
-      executablePath:
+      /*executablePath:
         process.env.NODE_ENV === 'production'
           ? process.env.PUPPETEER_EXECUTABLE_PATH
-          : puppeteer.executablePath(),
+          : puppeteer.executablePath(),*/
     });
 		console.log('HOLA 2');
     for (const city of cities) {
