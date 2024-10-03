@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: tatis-scrapping
-    env: node
-    buildCommand: 'yarn && yarn build'
-    startCommand: 'yarn start'
-    installPackages:
-      - chromium-browser
